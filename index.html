@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            .qrcode{
+                display:flex;
+                margin-top:50px;
+            }
+            input{
+                width:500px;
+            }
+            .div{
+                display:block;
+                width:100%;
+                margin-left:auto;
+                margin-right:auto;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div class="div">
+            <input type="text" id="qr-code" placeholder="Enter Your Item" required/>
+            <button type="submit" onclick="generateQR();" > Submit </button>
+        </div>
+        <div class="qrcode" id="qrcode"></div>
+        
+        <script src="qrcode.min.js"></script>
+
+        <script>
+            var qrData = document.getElementById("qr-code");
+            var qrCode = new QRCode(document.getElementById("qrcode"));
+
+            function generateQR()
+            {
+                if(qrData.value != "")
+                {
+                    qrCode.makeCode(qrData.value)
+                }
+                
+            }
+        </script>
+    </body>
+</html>
